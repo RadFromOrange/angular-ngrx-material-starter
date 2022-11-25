@@ -1,60 +1,400 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '~@angular/material' as mat;
-
 @import 'styles-variables';
 
 @import '~bootstrap/scss/bootstrap-reboot';
 @import '~bootstrap/scss/bootstrap-grid';
 @import 'styles-reset';
 
-@include mat.core();
+@import '~@angular/material/theming';
+
+@include mat-core();
 
 @import './themes/default-theme';
 @import './themes/light-theme';
 @import './themes/black-theme';
 @import './themes/nature-theme';
+@import './themes/milleis-black-theme';
+@import './themes/milleis-theme';
 
 @import 'styles-reset.scss-theme';
 @import './app/app/app.component.scss-theme';
 @import './app/shared/big-input/big-input/big-input.component.scss-theme';
-@import './app/features/about/about/about.component.scss-theme';
-@import './app/features/examples/notifications/components/notifications.component.scss-theme';
-@import './app/features/examples/todos/components/todos-container.component.scss-theme';
-@import './app/features/examples/stock-market/components/stock-market-container.component.scss-theme';
-@import './app/features/examples/theming/parent/parent.component.scss-theme';
-@import './app/features/examples/theming/child/child.component.scss-theme';
-@import './app/features/examples/examples/examples.component.scss-theme';
 
 @mixin custom-components-theme($theme) {
   @include anms-styles-reset-theme($theme);
   @include anms-app-component-theme($theme);
-  @include anms-about-component-theme($theme);
   @include anms-big-input-component-theme($theme);
-  @include anms-notifications-component-theme($theme);
-  @include anms-todos-container-component-theme($theme);
-  @include anms-stock-market-container-component-theme($theme);
-  @include anms-parent-component-theme($theme);
-  @include anms-child-component-theme($theme);
-  @include anms-examples-component-theme($theme);
 }
 
 .default-theme {
-  @include mat.all-component-themes($anms-theme);
-  @include custom-components-theme($anms-theme);
+  @include angular-material-theme($anms-milleis-dark-theme);
+  @include custom-components-theme($anms-milleis-dark-theme);
 }
 
 .light-theme {
-  @include mat.all-component-themes($anms-light-theme);
+  @include angular-material-theme($anms-light-theme);
   @include custom-components-theme($anms-light-theme);
 }
 
 .black-theme {
-  @include mat.all-component-themes($anms-black-theme);
+  @include angular-material-theme($anms-black-theme);
   @include custom-components-theme($anms-black-theme);
 }
 
 .nature-theme {
-  @include mat.all-component-themes($anms-nature-theme);
+  @include angular-material-theme($anms-nature-theme);
   @include custom-components-theme($anms-nature-theme);
+}
+
+.milleis-black-theme {
+  @include angular-material-theme($anms-milleis-dark-theme);
+  @include custom-components-theme($anms-milleis-dark-theme);
+}
+
+.milleis-theme {
+  @include angular-material-theme($anms-milleis-theme);
+  @include custom-components-theme($anms-milleis-theme);
+}
+
+/*@font-face {
+  font-family: "Brother1816-regular";
+  src: url("/assets/fonts/Brother1816-regular.eot");
+  src: url("/assets/fonts/Brother1816-regular.eot?#iefix") format("embedded-opentype"),
+  url("/assets/fonts/Brother1816-regular.svg#Brother1816-regular") format("svg"),
+  url("/assets/fonts/Brother1816-regular.woff") format("woff"),
+  url("/assets/fonts/Brother1816-regular.ttf") format("truetype");
+  font-style:normal;
+  font-weight:normal
+}
+
+@font-face {
+  font-family: "Brother1816-light";
+  src: url("/assets/fonts/Brother1816-light.eot");
+  src: url("/assets/fonts/Brother1816-light.eot?#iefix") format("embedded-opentype"),
+  url("/assets/fonts/Brother1816-light.svg#Brother1816-light") format("svg"),
+  url("/assets/fonts/Brother1816-light.woff") format("woff"),
+  url("/assets/fonts/Brother1816-light.ttf") format("truetype");
+  font-style:normal;
+  font-weight:normal
+}
+@font-face {
+  font-family: "Brother1816-medium";
+  src: url("/assets/fonts/Brother1816-medium.eot");
+  src: url("/assets/fonts/Brother1816-medium.eot?#iefix") format("embedded-opentype"),
+  url("/assets/fonts/Brother1816-medium.svg#Brother1816-medium") format("svg"),
+  url("/assets/fonts/Brother1816-medium.woff") format("woff"),
+  url("/assets/fonts/Brother1816-medium.ttf") format("truetype");
+  font-style:normal;
+  font-weight:normal
+}
+@font-face {
+  font-family: "Brother1816-bold";
+  src: url("/assets/fonts/Brother1816-bold.eot");
+  src: url("/assets/fonts/Brother1816-bold.eot?#iefix") format("embedded-opentype"),
+  url("/assets/fonts/Brother1816-bold.svg#Brother1816-bold") format("svg"),
+  url("/assets/fonts/Brother1816-bold.woff") format("woff"),
+  url("/assets/fonts/Brother1816-bold.ttf") format("truetype");
+  font-style:normal;
+  font-weight:normal
+}*/
+
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Brother1816-regular, sans-serif;'
+);
+@include mat-core($custom-typography);
+
+$font-family-sans-serif: 'Brother1816-regular, sans-serif;';
+
+//.display-flex { display: grid;
+//  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+//  grid-template-rows: 1fr 1fr 1fr;
+//  gap: 1px 1px;
+//  grid-template-areas: ". . . . ." ". . . . ." ". . . . .";}
+//
+//.col-1{
+//  background-color: #f5f3f3;
+//}
+//
+//.flex-3 { flex: 3; }
+//
+//.flex-4 { flex: 4; }
+//
+//.flex-5 { flex: 5; }
+//
+//.flex-6 { flex: 6; }
+//
+//[class*="flex-"] {
+//  padding-left: 10px;
+//  padding-right: 10px;
+//}
+//
+//[class*="flex-"]:first-child {
+//  padding-left: 0;
+//}
+//
+//[class*="flex-"]:nth-last-child(2) {
+//  padding-right: 0;
+//}
+//
+//@media all and (min-width: 768px) {
+//  tr {
+//    td {
+//      vertical-align: middle !important;
+//    }
+//    span {
+//      &:not([class]) {
+//        padding: 1rem 1rem;
+//      }
+//    }
+//  }
+//}
+
+table {
+  width: 100%;
+  // table-layout: fixed;
+}
+//
+th,
+td {
+  //  overflow: hidden;
+  // width: fit-content;
+  // text-overflow: ellipsis;
+  // white-space: nowrap;
+}
+
+#ajoutEnfant {
+  right: 10px;
+  position: absolute;
+  top: 10px;
+}
+
+#enfantsCard div.mat-form-field-infix {
+  text-align: center;
+}
+
+table > input {
+  text-align: center;
+}
+
+.mat-step-label {
+  font-size: 12px;
+}
+
+.mat-step-label-selected {
+  font-size: 12px;
+  color: #ff5722 !important;
+  font-weight: bold;
+  // font-weight: bold !important;
+}
+
+.mat-column-item {
+  min-width: 118px;
+
+  max-width: 118px;
+}
+.mat-column-vous {
+  // max-width: 100px;
+}
+
+.mat-column-commun {
+  //max-width: 100px;
+}
+
+.mat-column-conjoint {
+  // max-width: 100px;
+}
+
+.mat-column-commentaire {
+  max-width: 111px;
+}
+
+.mat-column-date {
+  max-width: 110px;
+}
+
+.mat-column-mensualites {
+  max-width: 70px;
+}
+.mat-column-tauxInterets {
+  max-width: 80px;
+}
+
+.mat-column-tauxAssurance {
+  max-width: 80px;
+}
+
+.mat-column-nature {
+  max-width: 111px;
+}
+
+.mat-column-etablissements {
+  max-width: 111px;
+}
+
+.mat-column-dateEcheance {
+  max-width: 111px;
+}
+.mat-column-capitalEmprunte {
+  max-width: 90px;
+}
+.mat-column-capitalRestantDu {
+  max-width: 90px;
+}
+
+.mat-form-field {
+  font-size: 12px;
+}
+
+.mat-button-toggle-label-content {
+  line-height: 43px !important;
+  font-size: 12px;
+}
+
+td.mat-cell {
+  padding: 16px 0 16px 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+.margin-top {
+  margin-top: 25px !important;
+}
+.margin-bottom {
+  margin-bottom: 25px !important;
+}
+.margin-right {
+  margin-right: 25px !important;
+}
+.margin-left {
+  margin-left: 25px !important;
+}
+.margin {
+  margin: 25px !important;
+}
+.mat-card-header-text {
+  width: 100% !important;
+}
+.clickable {
+  cursor: pointer;
+}
+//td.mat-cell:first-child {
+//  border-left: 2px solid #ffa600;
+//}
+//
+//td.mat-cell:last-child {
+//  border-right: 2px solid #ffa600;
+//}
+//
+//tr.mat-row {
+//  background: #79a1d8; /* Old browsers */
+//}
+
+.is-invalid {
+  border: 2px solid #df0000 !important;
+}
+
+.font75 {
+  font-size: 70%;
+}
+
+.milleis-theme .mat-step-header .mat-step-icon {
+  /* background-color: rgba(0, 0, 0, 0.54); */
+  /* color: black; */
+  font-weight: bold;
+  color: #cf9b64;
+}
+
+.milleis-theme .mat-step-header .mat-step-icon-selected,
+.milleis-theme .mat-step-header .mat-step-icon-state-done,
+.milleis-theme .mat-step-header .mat-step-icon-state-edit {
+  background-color: #ff5722 !important;
+  color: white;
+}
+
+.milleis-theme .mat-horizontal-stepper-header::before,
+.milleis-theme .mat-horizontal-stepper-header::after,
+.milleis-theme .mat-stepper-horizontal-line {
+  /* border-top-color: rgba(0, 0, 0, 0.12); */
+  border-top-color: #cf9b64;
+}
+
+/* sticky stepper hack **/
+
+.mat-horizontal-stepper-header-container {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  position: fixed;
+  z-index: 2;
+  margin-top: -101px;
+  //background-color: white;// #ffd857;
+  background-color: white; // #252525;
+  color: #e91e63 !important;
+  width: 100%;
+  max-width: 1108px;
+}
+.mat-horizontal-content-container {
+  padding-top: 53px !important;
+}
+
+.milleis-theme .mat-step-header .mat-step-label.mat-step-label-active {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #cf9b64;
+  /* color: rgba(0, 0, 0, 0.87); */
+}
+
+.milleis-theme .mat-step-header .mat-step-icon {
+  background-color: rgba(255, 255, 255, 0);
+  /* color: black; */
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm;
+  margin: 10mm auto;
+  border: 1px #d3d3d3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.subpage {
+  padding: 1cm;
+  border: 5px red solid;
+  height: 257mm;
+  outline: 2cm #ffeaea solid;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+  #opo {
+    display: none;
+  }
+  anms-resd {
+    //  border: #df0000 2px solid;
+    display: block;
+    //width: 210mm;
+    //height: 297mm;
+  }
+  .page {
+    margin: -1px;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    // page-break-after: always;
+  }
 }

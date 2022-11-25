@@ -1,4 +1,4 @@
-@use '~@angular/material' as mat;
+@import '~@angular/material/theming';
 
 $toolbar-breakpoint: 600px;
 
@@ -12,8 +12,10 @@ $grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
+  xl: 1222px
 );
 
-$success-colors: mat.define-palette(mat.$green-palette, 400);
-$warning-colors: mat.define-palette(mat.$amber-palette, 400);
+$success-colors: mat-palette($mat-green, 400);
+$warning-colors: mat-palette($mat-amber, 400);
+
+$font-family-base: 'Brother1816-regular';

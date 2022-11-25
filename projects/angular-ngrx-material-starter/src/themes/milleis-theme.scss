@@ -1,0 +1,126 @@
+$md-mcgpalette1: (
+  50: #e7e7e7,
+  100: #c3c3c3,
+  200: #9b9b9b,
+  300: #737373,
+  400: #555555,
+  500: #373737,
+  600: #313131,
+  700: #2a2a2a,
+  800: #232323,
+  900: #161616,
+  A100: #ef6f6f,
+  A200: #ea4141,
+  A400: #f80000,
+  A700: #df0000,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-mcgpalette0: (
+  50: #f9f3ec,
+  100: #f1e1d1,
+  200: #e7cdb2,
+  300: #ddb993,
+  400: #d6aa7b,
+  500: #cf9b64,
+  600: #ca935c,
+  700: #c38952,
+  800: #bd7f48,
+  900: #b26d36,
+  A100: #fffefc,
+  A200: #ffe0c9,
+  A400: #ffc396,
+  A700: #ffb47d,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$md-mcgpalette1: (
+  50: #e7e7e7,
+  100: #c3c3c3,
+  200: #9b9b9b,
+  300: #737373,
+  400: #555555,
+  500: #373737,
+  600: #313131,
+  700: #2a2a2a,
+  800: #232323,
+  900: #161616,
+  A100: #ef6f6f,
+  A200: #ea4141,
+  A400: #f80000,
+  A700: #df0000,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+$anms-nature-primary: mat-palette($md-mcgpalette0, 500);
+$anms-nature-accent: mat-palette($md-mcgpalette1, 500);
+$anms-nature-warn: mat-palette($md-mcgpalette1, A200);
+
+$anms-milleis-theme: mat-light-theme(
+  $anms-nature-primary,
+  $anms-nature-accent,
+  $anms-nature-warn
+);
+
+@import '~@angular/material/theming';
+
+$primary: map-get($anms-milleis-theme, primary);
+
+.expansion-panel-header {
+  background-color: mat-color($primary);
+}
+.milleis-theme mat-row,
+.milleis-theme mat-header-row,
+.milleis-theme mat-footer-row,
+.milleis-theme th.mat-header-cell,
+.milleis-theme td.mat-cell,
+.milleis-theme td.mat-footer-cell {
+  text-align: right;
+  padding-right: 25px;
+}
